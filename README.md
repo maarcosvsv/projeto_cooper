@@ -8,3 +8,5 @@ Serão avaliados:
 - Navegação entre telas
 - Validação de formulários conforme regras de negócios
 - Padrões de codificação
+
+Buscando trazer o melhor resultado, trouxe neste protótipo a comunicação via servlet para buscar os dados de uma API, e nas páginas JSP trouxe funções no JQuery para validar e formatar dados. 
