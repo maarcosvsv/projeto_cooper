@@ -37,20 +37,17 @@
 							$("#tabelaResgate tr:gt(0)").each(
 									function() {
 										var linhaAtual = $(this);
-										saldoResgatar = saldoResgatar
-												+
+										saldoResgatar = saldoResgatar + 
 												/**
 												Faz a troca da vírgula por ponto para correta validação do número em formato float
 												 **/
-												+linhaAtual.find('input').val()
-														.replace(",", ";")
-														.replace(".", "")
-														.replace(";", ".");
+												+ Number(linhaAtual.find('input').val()
+														.replaceAll(".", "")
+														.replaceAll(",", "."));
+										
 									});
-
 							$("#saldoResgatar").html(
 									formatarNumero(saldoResgatar));
-
 						});
 
 						//Após preencher a tela, os saldos acumulados de ações serão formatados
@@ -111,7 +108,7 @@
 									var linhaAtual = $(this);
 									var percentualInvestimento = $.trim(linhaAtual.find('td:eq(3)').html());
 									var saldoAcumuladoAcao = parseFloat((investimentoSaldoTotal * percentualInvestimento) / 100).toFixed(2);
-									var saldoResgateInformado = linhaAtual.find('input').val().replace(",", ";").replace(".", "").replace(";", ".");
+									var saldoResgateInformado = linhaAtual.find('input').val().replaceAll(".", "").replaceAll(",", ".");
 									
 									if (saldoResgateInformado != null
 											&& saldoResgateInformado != ""
@@ -231,6 +228,7 @@
 							<td><div class="resgate-group">
 									<input class="resgateAcao" data-id="${acao.id}"
 										data-percentual="${acao.percentual}" type="text"
+										maxlength="28"
 										placeholder="${acao.nome}" />
 								</div></td>
 						</tr>
