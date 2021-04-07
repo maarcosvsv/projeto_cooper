@@ -7,7 +7,8 @@
 							return parseFloat(valor).toLocaleString("pt-BR", { 
 								style : "currency",
 								currency : "BRL",
-								minimumFractionDigits : 2
+								minimumFractionDigits : 2,
+								maximumFractionDigits : 2
 							});
 						}
 							
@@ -74,7 +75,6 @@
 								thousands : '.',
 								decimal : ','
 							});
-							
 							recalculaSaldoResgatar();
 						});
 						;
@@ -138,7 +138,6 @@
 									}
 						}
 				});
-
 		});
 </script>
 
